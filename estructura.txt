@@ -1,0 +1,14 @@
+| Nº | Tipo de escalabilidad                 | Procesos `p` | Tamaño `n_train` (muestras) | `k`   | Comando sugerido                                                  |
+| -- | ------------------------------------- | ------------ | --------------------------- | ----- | ----------------------------------------------------------------- |
+| 1  | Fija (baseline, *p = 1*)              | 1            | 50 000                      | 5     | `mpiexec -n 1 python knn_digits_par.py 50000 5`                   |
+| 2  | **Escalabilidad *Fuerte***            | 2            | 50 000                      | 5     | `mpiexec --oversubscribe -n 2 python knn_digits_par.py 50000 5`   |
+| 3  |                                       | 4            | 50 000                      | 5     | `mpiexec --oversubscribe -n 4 python knn_digits_par.py 50000 5`   |
+| 4  |                                       | 8            | 50 000                      | 5     | `mpiexec --oversubscribe -n 8 python knn_digits_par.py 50000 5`   |
+| 5  |                                       | 16           | 50 000                      | 5     | `mpiexec --oversubscribe -n 16 python knn_digits_par.py 50000 5`  |
+| 6  | **Escalabilidad *Débil***             | 4            | 50 000 *(baseline)*         | 5     | ← ya corriste                                                     |
+| 7  |                                       | 4            | 100 000                     | 5     | `mpiexec --oversubscribe -n 4 python knn_digits_par.py 100000 5`  |
+| 8  |                                       | 4            | 200 000                     | 5     | `mpiexec --oversubscribe -n 4 python knn_digits_par.py 200000 5`  |
+| 9  | **Variación de `k`**                  | 4            | 50 000                      | **3** | `mpiexec --oversubscribe -n 4 python knn_digits_par.py 50000 3`   |
+| 10 |                                       | 4            | 50 000                      | **7** | `mpiexec --oversubscribe -n 4 python knn_digits_par.py 50000 7`   |
+| 11 | **Dataset original** (*digits*)       | 3            | (≈ 1 437)                   | 3     | `mpiexec -n 3 python knn_digits_par.py`                           |
+| 12 | **Stress FLOPs** (gran *n*, gran *p*) | 16           | 200 000                     | 5     | `mpiexec --oversubscribe -n 16 python knn_digits_par.py 200000 5` |
