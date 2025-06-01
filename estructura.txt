@@ -12,3 +12,4 @@
         | 10 |                                       | 4            | 50 000                      | **7** | `mpiexec --oversubscribe -n 4 python knn_digits_par.py 50000 7`   |
         | 11 | **Dataset original** (*digits*)       | 3            | (≈ 1 437)                   | 3     | `mpiexec -n 3 python knn_digits_par.py`                           |
         | 12 | **Stress FLOPs** (gran *n*, gran *p*) | 16           | 200 000                     | 5     | `mpiexec --oversubscribe -n 16 python knn_digits_par.py 200000 5` |
+
