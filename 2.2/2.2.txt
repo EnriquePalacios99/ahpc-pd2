@@ -1,0 +1,40 @@
+@EnriquePalacios99 ➜ /workspaces/ahpc-pd2 (main) $ mpiexec --oversubscribe -n 2 python knn_digits_par.py 100000 5
+[Ranks: 2] n_train=90000 n_test=10000 k=5
+Total      :  89.6120 s
+  Distrib  :   0.0084 s
+  Cómputo  :  89.2814 s
+  Recolec  :   0.3221 s
+Accuracy   :   0.9306
+
+Confusion matrix
+ [[926   9   4  13  11   8   4  12   8   6]
+ [ 10 942   7   9   8   4   4   3   7   7]
+ [ 10   9 930   7  11   7   5   7   9   6]
+ [ 14  10   6 925   3   5   5   9  15   8]
+ [  5   3   3   9 948   6   6   5   6   7]
+ [ 12   8   8  10  12 907  12   9  13  10]
+ [ 11   9   7  12   6   4 930   6   8   5]
+ [  7   7   7   7   8   9   4 939   6   7]
+ [  7  11   4   9  11  12   9   3 932   2]
+ [  9   7  14   8   8   6  11   3   6 927]]
+
+Classification report
+               precision    recall  f1-score   support
+
+           0     0.9159    0.9251    0.9205      1001
+           1     0.9281    0.9411    0.9345      1001
+           2     0.9394    0.9291    0.9342      1001
+           3     0.9167    0.9250    0.9209      1000
+           4     0.9240    0.9499    0.9368       998
+           5     0.9370    0.9061    0.9213      1001
+           6     0.9394    0.9319    0.9356       998
+           7     0.9428    0.9381    0.9404      1001
+           8     0.9228    0.9320    0.9274      1000
+           9     0.9411    0.9279    0.9345       999
+
+    accuracy                         0.9306     10000
+   macro avg     0.9307    0.9306    0.9306     10000
+weighted avg     0.9307    0.9306    0.9306     10000
+
+
+Imágenes guardadas: /workspaces/ahpc-pd2/pca_knn.png, /workspaces/ahpc-pd2/cm_knn.png
